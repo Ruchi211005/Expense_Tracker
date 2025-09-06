@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(u#)f%g@9#&a^0-)49!y3jlj12@2f679aqc%2bu$kq_%)7p2z!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'FALSE'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQLDATABASE'),
-        'USER':os.environ.get('MYSQLUSER'),
-        'PASSWORD':os.environ.get('MYSQLPASSWORD'),
-        'HOST':os.environ.get('MYSQLHOST'),
-        'PORT':os.environ.get('MYSQLPORT'),  
+        'NAME': 'railway',
+        'USER':'root',
+        'PASSWORD':'qhXRIHNkwBIEyZGstCBEmpjCinVVyaXj',
+        'HOST':'mysql.railway.internal',
+        'PORT': '3306'
         }
 }
 

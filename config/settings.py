@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(u#)f%g@9#&a^0-)49!y3jlj12@2f679aqc%2bu$kq_%)7p2z!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'FALSE'
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -77,15 +78,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER':'root',
-        'PASSWORD':'qhXRIHNkwBIEyZGstCBEmpjCinVVyaXj',
-        'HOST':'mysql.railway.internal',
-        'PORT': '3306'
-        }
-}
+    'default': dj_database_url.config(default=os.environ.get('mysql://root:HpmhWcYCnIhDTfLykyPxwqtIaOArAEyM@mysql.railway.internal:3306/railway'))}
 
 
 # Password validation
@@ -103,8 +96,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+    }]
+
 
 
 # Internationalization
